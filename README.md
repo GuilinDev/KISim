@@ -172,33 +172,6 @@ make test-integration
 make benchmark
 ```
 
-## 📚 Academic Usage
-
-This framework is designed for academic research. Key features:
-
-- **Reproducible Experiments**: Deterministic seeds and configurations
-- **Statistical Analysis**: Multiple runs with confidence intervals
-- **Publication Figures**: High-quality plots and tables
-- **Comprehensive Metrics**: Academic-standard evaluation
-
-### Citation
-```bibtex
-@inproceedings{kisim2024,
-  title={KISim: Reinforcement Learning for Intelligent Kubernetes Scheduling},
-  author={Your Name},
-  booktitle={Proceedings of IEEE Conference},
-  year={2024}
-}
-```
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit changes (`git commit -m 'Add amazing feature'`)
-4. Push to branch (`git push origin feature/amazing-feature`)
-5. Open Pull Request
-
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
