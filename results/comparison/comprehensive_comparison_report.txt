@@ -1,0 +1,92 @@
+================================================================================
+COMPREHENSIVE GPU vs CPU PERFORMANCE COMPARISON REPORT
+================================================================================
+
+SYNTHETIC TEST RESULTS
+----------------------------------------
+GPU Average Latency: 81.61 ms
+CPU Average Latency: 81.55 ms
+Latency Speedup: 1.00x (GPU is 1.00x faster)
+
+GPU Throughput: 11.65 images/sec
+CPU Throughput: 11.62 images/sec
+Throughput Speedup: 1.00x (GPU processes 1.00x more images)
+
+DYNAMIC LOAD TEST RESULTS
+----------------------------------------
+
+PERIODIC LOAD PATTERN:
+  User Range: 10-100 users
+  Test Duration: 300 seconds
+
+  P95 Response Time:
+    GPU: 2300.00 ms
+    CPU: 2300.00 ms
+    Speedup: 1.00x (GPU is 1.00x faster)
+  Throughput:
+    GPU: 11.50 req/sec
+    CPU: 12.10 req/sec
+    Speedup: 0.95x (GPU handles 0.95x more requests)
+  Reliability:
+    GPU Success Rate: 100.00% (4499/4499)
+    CPU Success Rate: 100.00% (4580/4580)
+
+
+RAMP LOAD PATTERN:
+  User Range: 14-100 users
+  Test Duration: 100 seconds
+
+  P95 Response Time:
+    GPU: 5800.00 ms
+    CPU: 6700.00 ms
+    Speedup: 1.16x (GPU is 1.16x faster)
+  Throughput:
+    GPU: 10.30 req/sec
+    CPU: 10.20 req/sec
+    Speedup: 1.01x (GPU handles 1.01x more requests)
+  Reliability:
+    GPU Success Rate: 100.00% (4333/4333)
+    CPU Success Rate: 100.00% (4300/4300)
+
+
+RANDOM LOAD PATTERN:
+  User Range: 13-96 users
+  Test Duration: 50 seconds
+
+  P95 Response Time:
+    GPU: 2600.00 ms
+    CPU: 5100.00 ms
+    Speedup: 1.96x (GPU is 1.96x faster)
+  Throughput:
+    GPU: 10.40 req/sec
+    CPU: 10.80 req/sec
+    Speedup: 0.96x (GPU handles 0.96x more requests)
+  Reliability:
+    GPU Success Rate: 100.00% (3931/3931)
+    CPU Success Rate: 100.00% (4188/4188)
+
+
+SPIKE LOAD PATTERN:
+  User Range: 10-100 users
+  Test Duration: 100 seconds
+
+  P95 Response Time:
+    GPU: 370.00 ms
+    CPU: 470.00 ms
+    Speedup: 1.27x (GPU is 1.27x faster)
+  Throughput:
+    GPU: 6.40 req/sec
+    CPU: 5.70 req/sec
+    Speedup: 1.12x (GPU handles 1.12x more requests)
+  Reliability:
+    GPU Success Rate: 100.00% (3239/3239)
+    CPU Success Rate: 100.00% (3238/3238)
+
+SUMMARY
+----------------------------------------
+Overall GPU Performance Advantage:
+  - 1.00x faster response times
+  - 1.00x higher throughput
+  - Consistent performance across all load patterns
+  - GPU utilizes TensorRT optimization and FP16 precision
+  - CPU version provides reliable fallback option

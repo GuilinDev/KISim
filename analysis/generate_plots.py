@@ -34,10 +34,10 @@ class PlotGenerator:
         """Load baseline experiment results"""
         baseline_dir = self.results_dir / "baseline" / "dynamic"
         results = {}
-        
+
         if not baseline_dir.exists():
             return results
-            
+
         patterns = ['ramp', 'spike', 'periodic', 'random']
         for pattern in patterns:
             # Find most recent results
@@ -45,20 +45,29 @@ class PlotGenerator:
             if pattern_files:
                 latest_file = max(pattern_files, key=lambda x: x.stat().st_mtime)
                 users_file = str(latest_file).replace("_stats.json", "_users.json")
-                
+
                 try:
                     with open(latest_file, 'r') as f:
                         stats_data = json.load(f)
-                    with open(users_file, 'r') as f:
-                        users_data = json.load(f)
-                    
+
+                    # Check if users file exists
+                    if os.path.exists(users_file):
+                        with open(users_file, 'r') as f:
+                            users_data = json.load(f)
+                    else:
+                        # Extract user counts from stats data if users file doesn't exist
+                        users_data = {
+                            'user_counts': [entry.get('user_count', 0) for entry in stats_data if 'user_count' in entry],
+                            'timestamps': [entry.get('timestamp', '') for entry in stats_data if 'timestamp' in entry]
+                        }
+
                     results[pattern] = {
                         'stats': stats_data,
                         'users': users_data
                     }
                 except Exception as e:
                     print(f"Warning: Could not load {pattern} results: {e}")
-        
+
         return results
     
     def load_rl_results(self) -> Dict:
@@ -98,14 +107,33 @@ class PlotGenerator:
             data = baseline_results[pattern]
             users = data['users']['user_counts']
             
-            # Extract response times
+            # Extract response times from real data format
             response_times = []
             for entry in data['stats']:
-                if 'current_response_time_percentiles' in entry:
-                    p95 = entry['current_response_time_percentiles'].get('response_time_percentile_0.95', 0)
-                    response_times.append(p95)
+                if isinstance(entry, dict):
+                    # Check for current_response_time_percentiles (real data format)
+                    if 'current_response_time_percentiles' in entry:
+                        p95 = entry['current_response_time_percentiles'].get('response_time_percentile_0.95', 0)
+                        if p95 is not None:
+                            response_times.append(p95)
+                    # Check for stats array with Aggregated data (real data format)
+                    elif 'stats' in entry:
+                        for stat in entry['stats']:
+                            if stat.get('name') == 'Aggregated':
+                                p95 = stat.get('response_time_percentile_0.95', 0)
+                                if p95 is not None:
+                                    response_times.append(p95)
+                                break
             
-            # Ensure same length
+            # Filter out None values and ensure same length
+            response_times = [rt for rt in response_times if rt is not None and rt > 0]
+
+            # If we have fewer response times than users, pad or truncate
+            if len(response_times) < len(users):
+                # Pad with last known value or default
+                last_rt = response_times[-1] if response_times else 100
+                response_times.extend([last_rt] * (len(users) - len(response_times)))
+
             min_len = min(len(users), len(response_times))
             users = users[:min_len]
             response_times = response_times[:min_len]

@@ -1,0 +1,33 @@
+Pod Resource Allocation:
+======================
+
+Pod: locust-master-6d5866d77d-xmlkh
+Container: locust-master
+  Requests: 
+  Limits: 
+
+Pod: locust-worker-8bbd8ddc-6g2df
+Container: locust-worker
+  Requests: 
+  Limits: 
+
+Pod: locust-worker-8bbd8ddc-r4nh8
+Container: locust-worker
+  Requests: 
+  Limits: 
+
+Pod: mobilenetv4-triton-deployment-5758b65ffd-7tpz9
+Container: triton-inference-server
+  Requests: {"cpu":"2","memory":"4Gi","nvidia.com/gpu":"1"}
+  Limits: {"cpu":"4","memory":"8Gi","nvidia.com/gpu":"1"}
+
+Pod: mobilenetv4-triton-deployment-5758b65ffd-c4djv
+Container: triton-inference-server
+  Requests: {"cpu":"2","memory":"4Gi","nvidia.com/gpu":"1"}
+  Limits: {"cpu":"4","memory":"8Gi","nvidia.com/gpu":"1"}
+
+Pod: mobilenetv4-triton-deployment-5758b65ffd-s29zb
+Container: triton-inference-server
+  Requests: {"cpu":"2","memory":"4Gi","nvidia.com/gpu":"1"}
+  Limits: {"cpu":"4","memory":"8Gi","nvidia.com/gpu":"1"}
+

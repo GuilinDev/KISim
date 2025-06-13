@@ -1,0 +1,57 @@
+Warning: '--strict-model-config' has been deprecated! Please use '--disable-auto-complete-config' instead.
+I0524 00:15:10.071473 1 pinned_memory_manager.cc:275] Pinned memory pool is created at '0x75b9f8000000' with size 268435456
+I0524 00:15:10.074019 1 cuda_memory_manager.cc:107] CUDA memory pool is created on device 0 with size 67108864
+I0524 00:15:10.080036 1 model_lifecycle.cc:469] loading: mobilenetv4:1
+I0524 00:15:10.081375 1 onnxruntime.cc:2789] TRITONBACKEND_Initialize: onnxruntime
+I0524 00:15:10.081388 1 onnxruntime.cc:2799] Triton TRITONBACKEND API version: 1.19
+I0524 00:15:10.081393 1 onnxruntime.cc:2805] 'onnxruntime' TRITONBACKEND API version: 1.19
+I0524 00:15:10.081397 1 onnxruntime.cc:2835] backend configuration:
+{"cmdline":{"auto-complete-config":"true","backend-directory":"/opt/tritonserver/backends","min-compute-capability":"6.000000","default-max-batch-size":"4"}}
+I0524 00:15:10.095861 1 onnxruntime.cc:2900] TRITONBACKEND_ModelInitialize: mobilenetv4 (version 1)
+I0524 00:15:10.096295 1 onnxruntime.cc:873] skipping model configuration auto-complete for 'mobilenetv4': inputs and outputs already specified
+I0524 00:15:10.096712 1 onnxruntime.cc:2965] TRITONBACKEND_ModelInstanceInitialize: mobilenetv4_0_0 (GPU device 0)
+I0524 00:15:10.222754 1 model_lifecycle.cc:835] successfully loaded 'mobilenetv4'
+I0524 00:15:10.222829 1 server.cc:607] 
++------------------+------+
+| Repository Agent | Path |
++------------------+------+
++------------------+------+
+
+I0524 00:15:10.222858 1 server.cc:634] 
++-------------+-----------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Backend     | Path                                                            | Config                                                                                                                                                        |
++-------------+-----------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| onnxruntime | /opt/tritonserver/backends/onnxruntime/libtriton_onnxruntime.so | {"cmdline":{"auto-complete-config":"true","backend-directory":"/opt/tritonserver/backends","min-compute-capability":"6.000000","default-max-batch-size":"4"}} |
++-------------+-----------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+I0524 00:15:10.222871 1 server.cc:677] 
++-------------+---------+--------+
+| Model       | Version | Status |
++-------------+---------+--------+
+| mobilenetv4 | 1       | READY  |
++-------------+---------+--------+
+
+I0524 00:15:10.252591 1 metrics.cc:877] Collecting metrics for GPU 0: NVIDIA GeForce RTX 3080
+I0524 00:15:10.255134 1 metrics.cc:770] Collecting CPU metrics
+I0524 00:15:10.255255 1 tritonserver.cc:2538] 
++----------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Option                           | Value                                                                                                                                                                                                           |
++----------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| server_id                        | triton                                                                                                                                                                                                          |
+| server_version                   | 2.45.0                                                                                                                                                                                                          |
+| server_extensions                | classification sequence model_repository model_repository(unload_dependents) schedule_policy model_configuration system_shared_memory cuda_shared_memory binary_tensor_data parameters statistics trace logging |
+| model_repository_path[0]         | /models                                                                                                                                                                                                         |
+| model_control_mode               | MODE_NONE                                                                                                                                                                                                       |
+| strict_model_config              | 0                                                                                                                                                                                                               |
+| rate_limit                       | OFF                                                                                                                                                                                                             |
+| pinned_memory_pool_byte_size     | 268435456                                                                                                                                                                                                       |
+| cuda_memory_pool_byte_size{0}    | 67108864                                                                                                                                                                                                        |
+| min_supported_compute_capability | 6.0                                                                                                                                                                                                             |
+| strict_readiness                 | 1                                                                                                                                                                                                               |
+| exit_timeout                     | 30                                                                                                                                                                                                              |
+| cache_enabled                    | 0                                                                                                                                                                                                               |
++----------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+I0524 00:15:10.255967 1 grpc_server.cc:2463] Started GRPCInferenceService at 0.0.0.0:8001
+I0524 00:15:10.256102 1 http_server.cc:4692] Started HTTPService at 0.0.0.0:8000
+I0524 00:15:10.297202 1 http_server.cc:362] Started Metrics Service at 0.0.0.0:8002

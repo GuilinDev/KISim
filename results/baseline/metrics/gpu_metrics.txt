@@ -1,0 +1,31 @@
+Fri May 23 23:28:47 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.144                Driver Version: 570.144        CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 3080        Off |   00000000:01:00.0  On |                  N/A |
+| 35%   64C    P0            109W /  320W |    3166MiB /  10240MiB |     30%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A            7193      G   /usr/lib/xorg/Xorg                      515MiB |
+|    0   N/A  N/A            7418      G   /usr/bin/gnome-shell                     35MiB |
+|    0   N/A  N/A            7995      G   ...exec/xdg-desktop-portal-gnome         36MiB |
+|    0   N/A  N/A            8208      G   /opt/google/chrome/chrome                 3MiB |
+|    0   N/A  N/A            8258      G   ...144 --variations-seed-version         98MiB |
+|    0   N/A  N/A            8501      G   ...ess --variations-seed-version         72MiB |
+|    0   N/A  N/A           89063      G   ...share/Steam/ubuntu12_32/steam          4MiB |
+|    0   N/A  N/A           89650      G   ./steamwebhelper                         17MiB |
+|    0   N/A  N/A           89680    C+G   ...am/ubuntu12_64/steamwebhelper          8MiB |
+|    0   N/A  N/A         1908952    C+G   ...game/bin/linuxsteamrt64/dota2       1626MiB |
+|    0   N/A  N/A         2276761      C   python3                                 282MiB |
+|    0   N/A  N/A         2397079      C   tritonserver                            332MiB |
++-----------------------------------------------------------------------------------------+

@@ -417,6 +417,43 @@ plots-comparison:
 	@python3 analysis/generate_plots.py --results-dir $(RESULTS_DIR) --output-dir $(FIGURES_DIR) --type comparison
 	@echo "Comparison plots generated in $(FIGURES_DIR)/comparison"
 
+# Demo commands using sample data
+# ================================
+
+# Generate comprehensive comparison using sample data
+demo-analyze:
+	@echo "Generating comprehensive comparison using sample data..."
+	@python3 scripts/generate_comprehensive_comparison.py
+	@echo "Sample analysis completed! Check $(RESULTS_DIR)/comparison/"
+
+# Generate all plots using sample data
+demo-plots:
+	@echo "Generating all plots using sample data..."
+	@python3 analysis/generate_plots.py --results-dir $(RESULTS_DIR) --output-dir $(FIGURES_DIR) --type all
+	@echo "Sample plots generated! Check $(FIGURES_DIR)/"
+
+# Generate baseline plots using sample data
+demo-baseline-plots:
+	@echo "Generating baseline plots using sample data..."
+	@python3 analysis/generate_plots.py --results-dir $(RESULTS_DIR) --output-dir $(FIGURES_DIR) --type baseline
+	@echo "Sample baseline plots generated! Check $(FIGURES_DIR)/baseline/"
+
+# Generate RL plots using sample data
+demo-rl-plots:
+	@echo "Generating RL plots using sample data..."
+	@python3 analysis/generate_plots.py --results-dir $(RESULTS_DIR) --output-dir $(FIGURES_DIR) --type rl
+	@echo "Sample RL plots generated! Check $(FIGURES_DIR)/rl/"
+
+# Show sample data structure
+demo-data:
+	@echo "Sample data structure:"
+	@echo "======================"
+	@find $(RESULTS_DIR) -name "*.json" | head -10
+	@echo ""
+	@echo "Total sample files: $$(find $(RESULTS_DIR) -name '*.json' | wc -l)"
+	@echo ""
+	@echo "Use 'make demo-plots' to generate figures from this sample data"
+
 # Help for RL commands
 rl-help:
 	@echo "RL Training and Evaluation Commands:"

@@ -1,0 +1,314 @@
+WARNING: The directory '/home/locust/.cache/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.
+Collecting numpy
+  Downloading numpy-2.2.6-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (62 kB)
+Collecting tritonclient[http]
+  Downloading tritonclient-2.57.0-py3-none-manylinux1_x86_64.whl.metadata (2.8 kB)
+Collecting python-rapidjson>=0.9.1 (from tritonclient[http])
+  Downloading python_rapidjson-1.20-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (22 kB)
+Requirement already satisfied: urllib3>=2.0.7 in /opt/venv/lib/python3.12/site-packages (from tritonclient[http]) (2.4.0)
+Collecting aiohttp<4.0.0,>=3.8.1 (from tritonclient[http])
+  Downloading aiohttp-3.11.18-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (7.7 kB)
+Requirement already satisfied: geventhttpclient>=2.3.3 in /opt/venv/lib/python3.12/site-packages (from tritonclient[http]) (2.3.3)
+Collecting aiohappyeyeballs>=2.3.0 (from aiohttp<4.0.0,>=3.8.1->tritonclient[http])
+  Downloading aiohappyeyeballs-2.6.1-py3-none-any.whl.metadata (5.9 kB)
+Collecting aiosignal>=1.1.2 (from aiohttp<4.0.0,>=3.8.1->tritonclient[http])
+  Downloading aiosignal-1.3.2-py2.py3-none-any.whl.metadata (3.8 kB)
+Collecting attrs>=17.3.0 (from aiohttp<4.0.0,>=3.8.1->tritonclient[http])
+  Downloading attrs-25.3.0-py3-none-any.whl.metadata (10 kB)
+Collecting frozenlist>=1.1.1 (from aiohttp<4.0.0,>=3.8.1->tritonclient[http])
+  Downloading frozenlist-1.6.0-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (16 kB)
+Collecting multidict<7.0,>=4.5 (from aiohttp<4.0.0,>=3.8.1->tritonclient[http])
+  Downloading multidict-6.4.4-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.3 kB)
+Collecting propcache>=0.2.0 (from aiohttp<4.0.0,>=3.8.1->tritonclient[http])
+  Downloading propcache-0.3.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (10 kB)
+Collecting yarl<2.0,>=1.17.0 (from aiohttp<4.0.0,>=3.8.1->tritonclient[http])
+  Downloading yarl-1.20.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (72 kB)
+Requirement already satisfied: gevent in /opt/venv/lib/python3.12/site-packages (from geventhttpclient>=2.3.3->tritonclient[http]) (24.11.1)
+Requirement already satisfied: certifi in /opt/venv/lib/python3.12/site-packages (from geventhttpclient>=2.3.3->tritonclient[http]) (2025.4.26)
+Requirement already satisfied: brotli in /opt/venv/lib/python3.12/site-packages (from geventhttpclient>=2.3.3->tritonclient[http]) (1.1.0)
+Requirement already satisfied: idna>=2.0 in /opt/venv/lib/python3.12/site-packages (from yarl<2.0,>=1.17.0->aiohttp<4.0.0,>=3.8.1->tritonclient[http]) (3.10)
+Requirement already satisfied: zope.event in /opt/venv/lib/python3.12/site-packages (from gevent->geventhttpclient>=2.3.3->tritonclient[http]) (5.0)
+Requirement already satisfied: zope.interface in /opt/venv/lib/python3.12/site-packages (from gevent->geventhttpclient>=2.3.3->tritonclient[http]) (7.2)
+Requirement already satisfied: greenlet>=3.1.1 in /opt/venv/lib/python3.12/site-packages (from gevent->geventhttpclient>=2.3.3->tritonclient[http]) (3.2.2)
+Requirement already satisfied: setuptools in /opt/venv/lib/python3.12/site-packages (from zope.event->gevent->geventhttpclient>=2.3.3->tritonclient[http]) (80.8.0)
+Downloading numpy-2.2.6-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.5/16.5 MB 44.0 MB/s eta 0:00:00
+Downloading aiohttp-3.11.18-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.7/1.7 MB 68.6 MB/s eta 0:00:00
+Downloading python_rapidjson-1.20-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.7/1.7 MB 70.0 MB/s eta 0:00:00
+Downloading tritonclient-2.57.0-py3-none-manylinux1_x86_64.whl (14.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 14.4/14.4 MB 68.5 MB/s eta 0:00:00
+Downloading aiohappyeyeballs-2.6.1-py3-none-any.whl (15 kB)
+Downloading aiosignal-1.3.2-py2.py3-none-any.whl (7.6 kB)
+Downloading attrs-25.3.0-py3-none-any.whl (63 kB)
+Downloading frozenlist-1.6.0-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (316 kB)
+Downloading multidict-6.4.4-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (223 kB)
+Downloading propcache-0.3.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (245 kB)
+Downloading yarl-1.20.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (349 kB)
+Installing collected packages: python-rapidjson, propcache, numpy, multidict, frozenlist, attrs, aiohappyeyeballs, yarl, tritonclient, aiosignal, aiohttp
+Successfully installed aiohappyeyeballs-2.6.1 aiohttp-3.11.18 aiosignal-1.3.2 attrs-25.3.0 frozenlist-1.6.0 multidict-6.4.4 numpy-2.2.6 propcache-0.3.1 python-rapidjson-1.20 tritonclient-2.57.0 yarl-1.20.0
+
+[notice] A new release of pip is available: 25.0.1 -> 25.1.1
+[notice] To update, run: pip install --upgrade pip
+[2025-05-24 03:22:50,280] locust-master-6d5866d77d-xmlkh/INFO/locust.main: Starting Locust 2.37.5
+[2025-05-24 03:22:50,281] locust-master-6d5866d77d-xmlkh/INFO/locust.main: Starting web interface at http://0.0.0.0:8089, press enter to open your default browser.
+[2025-05-24 03:23:03,342] locust-master-6d5866d77d-xmlkh/INFO/locust.runners: Ramping to 67 users at a rate of 67.00 per second
+[2025-05-24 03:23:03,346] locust-master-6d5866d77d-xmlkh/INFO/locust.runners: All users spawned: {"TritonUser": 67} (67 total users)
+[2025-05-24 03:23:03,351] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:03,450] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:03,546] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:03,640] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:03,642] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:03,738] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:03,739] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:03,837] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:03,934] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:03,936] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:04,036] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:04,038] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:04,041] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:04,138] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:04,139] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:04,253] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:04,359] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:04,468] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:04,567] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:04,568] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:04,662] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:04,663] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:04,756] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:04,853] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:04,854] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:04,948] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:04,949] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:04,950] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:04,965] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:05,063] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:05,064] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:05,163] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:05,260] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:05,357] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:05,461] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:05,463] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:05,568] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:05,569] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:05,571] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:05,672] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:05,674] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:05,675] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:05,774] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:05,775] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:05,777] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:05,779] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:05,874] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:05,969] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:06,062] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:06,162] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:06,167] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:06,260] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:06,262] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:06,263] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:06,360] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:06,457] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:06,458] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:06,556] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:06,557] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:06,558] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:06,660] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:06,756] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:06,852] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:06,955] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:06,957] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:07,064] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:07,158] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:09,459] locust-master-6d5866d77d-xmlkh/INFO/locust.runners: Ramping to 26 users at a rate of 26.00 per second
+[2025-05-24 03:23:11,265] locust-master-6d5866d77d-xmlkh/INFO/locust.runners: All users spawned: {"TritonUser": 26} (26 total users)
+[2025-05-24 03:23:40,124] locust-master-6d5866d77d-xmlkh/INFO/locust.runners: Ramping to 94 users at a rate of 94.00 per second
+[2025-05-24 03:23:40,131] locust-master-6d5866d77d-xmlkh/INFO/locust.runners: All users spawned: {"TritonUser": 94} (94 total users)
+[2025-05-24 03:23:40,132] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:40,133] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:40,230] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:40,231] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:40,323] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:40,325] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:40,326] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:40,327] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:40,329] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:40,419] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:40,421] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:40,512] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:40,513] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:40,604] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:40,698] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:40,699] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:40,700] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:40,701] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:40,793] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:40,794] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:40,795] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:40,887] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:40,978] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:41,069] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:41,160] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:41,161] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:41,252] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:41,253] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:41,348] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:41,439] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:41,531] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:41,623] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:41,624] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:41,716] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:41,816] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:41,911] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:41,912] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:42,009] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:42,010] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:42,103] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:42,107] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:42,204] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:42,297] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:42,389] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:42,390] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:42,391] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:44,079] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:44,080] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:44,081] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:44,083] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:44,180] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:44,284] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:44,286] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:44,386] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:44,387] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:44,485] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:44,582] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:44,586] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:44,686] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:44,787] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:44,885] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:44,983] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:44,987] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:44,989] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:44,990] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:44,992] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:45,089] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:23:45,189] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:24:18,797] locust-master-6d5866d77d-xmlkh/INFO/locust.runners: Ramping to 78 users at a rate of 78.00 per second
+[2025-05-24 03:24:18,798] locust-master-6d5866d77d-xmlkh/WARNING/root: CPU usage above 90%! This may constrain your throughput and may even give inconsistent response time measurements! See https://docs.locust.io/en/stable/running-distributed.html for how to distribute the load over multiple CPU cores or machines
+[2025-05-24 03:24:18,876] locust-master-6d5866d77d-xmlkh/INFO/locust.runners: All users spawned: {"TritonUser": 78} (78 total users)
+[2025-05-24 03:24:49,122] locust-master-6d5866d77d-xmlkh/INFO/locust.runners: Ramping to 21 users at a rate of 21.00 per second
+[2025-05-24 03:24:53,344] locust-master-6d5866d77d-xmlkh/INFO/locust.runners: All users spawned: {"TritonUser": 21} (21 total users)
+[2025-05-24 03:25:19,991] locust-master-6d5866d77d-xmlkh/INFO/locust.runners: Ramping to 21 users at a rate of 21.00 per second
+[2025-05-24 03:25:19,991] locust-master-6d5866d77d-xmlkh/INFO/locust.runners: All users spawned: {"TritonUser": 21} (21 total users)
+[2025-05-24 03:25:50,454] locust-master-6d5866d77d-xmlkh/INFO/locust.runners: Ramping to 99 users at a rate of 99.00 per second
+[2025-05-24 03:25:50,463] locust-master-6d5866d77d-xmlkh/INFO/locust.runners: All users spawned: {"TritonUser": 99} (99 total users)
+[2025-05-24 03:25:50,464] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:50,465] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:50,467] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:50,468] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:50,565] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:50,567] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:50,568] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:50,569] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:50,661] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:50,670] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:50,761] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:50,855] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:50,856] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:50,947] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:50,948] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:51,039] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:51,134] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:51,228] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:51,326] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:51,328] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:51,329] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:51,425] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:51,524] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:51,525] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:51,526] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:51,618] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:51,713] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:51,808] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:51,903] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:51,907] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:51,908] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:52,004] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:52,100] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:52,194] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:52,290] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:52,389] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:52,485] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:52,486] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:52,581] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:52,582] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:52,583] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:52,584] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:52,587] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:52,682] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:52,776] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:52,872] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:53,554] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:53,650] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:53,745] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:53,847] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:53,943] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:54,036] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:54,127] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:54,217] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:54,310] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:54,400] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:54,496] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:54,588] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:54,680] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:54,773] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:54,774] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:54,870] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:54,874] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:54,974] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:55,075] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:55,177] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:55,278] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:55,379] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:55,481] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:55,575] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:55,668] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:55,762] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:55,860] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:55,959] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:55,964] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:55,965] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:55,967] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:25:55,968] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:26:31,450] locust-master-6d5866d77d-xmlkh/INFO/locust.runners: Ramping to 43 users at a rate of 43.00 per second
+[2025-05-24 03:26:32,453] locust-master-6d5866d77d-xmlkh/INFO/locust.runners: All users spawned: {"TritonUser": 43} (43 total users)
+[2025-05-24 03:27:01,561] locust-master-6d5866d77d-xmlkh/INFO/locust.runners: Ramping to 64 users at a rate of 64.00 per second
+[2025-05-24 03:27:01,563] locust-master-6d5866d77d-xmlkh/INFO/locust.runners: All users spawned: {"TritonUser": 64} (64 total users)
+[2025-05-24 03:27:01,564] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:27:01,656] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:27:01,751] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:27:01,843] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:27:01,935] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:27:02,027] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:27:02,029] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:27:02,030] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:27:02,132] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:27:02,133] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:27:02,227] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:27:02,321] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:27:02,322] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:27:02,324] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:27:02,325] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:27:02,327] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:27:02,421] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:27:02,423] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:27:02,516] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:27:02,517] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:27:02,611] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:27:34,441] locust-master-6d5866d77d-xmlkh/INFO/locust.runners: Ramping to 65 users at a rate of 65.00 per second
+[2025-05-24 03:27:34,441] locust-master-6d5866d77d-xmlkh/INFO/locust.runners: All users spawned: {"TritonUser": 65} (65 total users)
+[2025-05-24 03:27:34,443] locust-master-6d5866d77d-xmlkh/INFO/locustfile: User session started, synthetic image generated
+[2025-05-24 03:28:04,910] locust-master-6d5866d77d-xmlkh/INFO/locust.runners: Ramping to 31 users at a rate of 31.00 per second
+[2025-05-24 03:28:07,597] locust-master-6d5866d77d-xmlkh/INFO/locust.runners: All users spawned: {"TritonUser": 31} (31 total users)
+[2025-05-24 03:28:36,200] locust-master-6d5866d77d-xmlkh/WARNING/locust.runners: CPU usage was too high at some point during the test! See https://docs.locust.io/en/stable/running-distributed.html for how to distribute the load over multiple CPU cores or machines

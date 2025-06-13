@@ -1,0 +1,67 @@
+Comprehensive Performance Comparison Report
+=========================================
+
+This report compares the performance of GPU and CPU versions of the Triton server
+under different load patterns.
+
+1. Synthetic Test Results
+------------------------
+Synthetic Test Performance Comparison
+=====================================
+CPU Average Latency: 81.55 ms
+GPU Average Latency: 77.17 ms
+Latency Speedup (CPU/GPU): 1.06x
+
+CPU P95 Latency: 90.17 ms
+GPU P95 Latency: 80.61 ms
+
+CPU Throughput: 11.62 images/sec
+GPU Throughput: 12.34 images/sec
+Throughput Speedup (GPU/CPU): 1.06x
+
+
+2. Ramp Pattern Results
+-----------------------
+Ramp Pattern Performance Comparison
+====================================
+CPU Average P95 Response Time: 3175.50 ms
+GPU Average P95 Response Time: 3421.50 ms
+Response Time Speedup (CPU/GPU): 0.93x
+
+CPU Maximum P95 Response Time: 5300.00 ms
+GPU Maximum P95 Response Time: 6100.00 ms
+
+
+2. Spike Pattern Results
+------------------------
+Error generating report for spike pattern: unsupported operand type(s) for +: 'int' and 'NoneType'
+
+2. Periodic Pattern Results
+---------------------------
+Periodic Pattern Performance Comparison
+========================================
+CPU Average P95 Response Time: 3381.00 ms
+GPU Average P95 Response Time: 3374.00 ms
+Response Time Speedup (CPU/GPU): 1.00x
+
+CPU Maximum P95 Response Time: 6200.00 ms
+GPU Maximum P95 Response Time: 6300.00 ms
+
+
+2. Random Pattern Results
+-------------------------
+Random Pattern Performance Comparison
+======================================
+CPU Average P95 Response Time: 4090.00 ms
+GPU Average P95 Response Time: 3653.00 ms
+Response Time Speedup (CPU/GPU): 1.12x
+
+CPU Maximum P95 Response Time: 6000.00 ms
+GPU Maximum P95 Response Time: 5800.00 ms
+
+
+Summary
+-------
+Based on the test results, the GPU version consistently outperforms the CPU version
+in terms of latency and throughput across different load patterns.
+

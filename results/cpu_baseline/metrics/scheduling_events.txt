@@ -1,0 +1,3 @@
+LAST SEEN   TYPE      REASON             OBJECT                                               MESSAGE
+10m         Warning   FailedScheduling   pod/mobilenetv4-triton-deployment-5758b65ffd-959f7   0/1 nodes are available: 1 Insufficient nvidia.com/gpu. preemption: 0/1 nodes are available: 1 No preemption victims found for incoming pod.
+10m         Warning   FailedScheduling   pod/mobilenetv4-triton-deployment-5758b65ffd-sm58m   0/1 nodes are available: 1 Insufficient nvidia.com/gpu. preemption: 0/1 nodes are available: 1 No preemption victims found for incoming pod.

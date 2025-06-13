@@ -1,0 +1,8 @@
+Periodic Pattern Performance Comparison
+========================================
+CPU Average P95 Response Time: 3381.00 ms
+GPU Average P95 Response Time: 3374.00 ms
+Response Time Speedup (CPU/GPU): 1.00x
+
+CPU Maximum P95 Response Time: 6200.00 ms
+GPU Maximum P95 Response Time: 6300.00 ms

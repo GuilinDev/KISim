@@ -1,0 +1,8 @@
+Ramp Pattern Performance Comparison
+====================================
+CPU Average P95 Response Time: 3175.50 ms
+GPU Average P95 Response Time: 3421.50 ms
+Response Time Speedup (CPU/GPU): 0.93x
+
+CPU Maximum P95 Response Time: 5300.00 ms
+GPU Maximum P95 Response Time: 6100.00 ms

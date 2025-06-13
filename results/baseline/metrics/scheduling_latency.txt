@@ -1,0 +1,27 @@
+Pod Scheduling Latency:
+======================
+
+Pod: locust-master-6d5866d77d-xmlkh
+  Created:   2025-05-24T03:22:24Z
+  Scheduled: 2025-05-24T03:22:24Z
+
+Pod: locust-worker-8bbd8ddc-6g2df
+  Created:   2025-05-24T03:22:24Z
+  Scheduled: 2025-05-24T03:22:24Z
+
+Pod: locust-worker-8bbd8ddc-r4nh8
+  Created:   2025-05-24T03:22:24Z
+  Scheduled: 2025-05-24T03:22:24Z
+
+Pod: mobilenetv4-triton-deployment-5758b65ffd-7tpz9
+  Created:   2025-05-24T03:17:24Z
+  Scheduled: 2025-05-24T03:17:26Z
+
+Pod: mobilenetv4-triton-deployment-5758b65ffd-c4djv
+  Created:   2025-05-24T03:17:24Z
+  Scheduled: 2025-05-24T03:17:24Z
+
+Pod: mobilenetv4-triton-deployment-5758b65ffd-s29zb
+  Created:   2025-05-24T03:17:24Z
+  Scheduled: 2025-05-24T03:17:24Z
+

@@ -1,0 +1,7 @@
+NAME                                             READY   STATUS    RESTARTS   AGE     IP             NODE             NOMINATED NODE   READINESS GATES
+locust-master-6d5866d77d-xmlkh                   1/1     Running   0          6m34s   10.1.193.222   guilin-ms-7c79   <none>           <none>
+locust-worker-8bbd8ddc-6g2df                     1/1     Running   0          6m34s   10.1.193.193   guilin-ms-7c79   <none>           <none>
+locust-worker-8bbd8ddc-r4nh8                     1/1     Running   0          6m34s   10.1.193.245   guilin-ms-7c79   <none>           <none>
+mobilenetv4-triton-deployment-5758b65ffd-7tpz9   1/1     Running   0          11m     10.1.193.196   guilin-ms-7c79   <none>           <none>
+mobilenetv4-triton-deployment-5758b65ffd-c4djv   0/1     Pending   0          11m     <none>         <none>           <none>           <none>
+mobilenetv4-triton-deployment-5758b65ffd-s29zb   0/1     Pending   0          11m     <none>         <none>           <none>           <none>

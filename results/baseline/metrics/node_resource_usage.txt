@@ -1,0 +1,2 @@
+NAME             CPU(cores)   CPU(%)   MEMORY(bytes)   MEMORY(%)   
+guilin-ms-7c79   2774m        13%      19677Mi         61%         

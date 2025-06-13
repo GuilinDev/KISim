@@ -1,0 +1,33 @@
+Pod Resource Allocation:
+======================
+
+Pod: locust-master-6d5866d77d-q97rk
+Container: locust-master
+  Requests: 
+  Limits: 
+
+Pod: locust-worker-8bbd8ddc-mf8pm
+Container: locust-worker
+  Requests: 
+  Limits: 
+
+Pod: locust-worker-8bbd8ddc-wwh6p
+Container: locust-worker
+  Requests: 
+  Limits: 
+
+Pod: mobilenetv4-triton-cpu-deployment-75d98f5ff4-fhvx2
+Container: triton-inference-server
+  Requests: {"cpu":"2","memory":"4Gi"}
+  Limits: {"cpu":"4","memory":"8Gi"}
+
+Pod: mobilenetv4-triton-cpu-deployment-75d98f5ff4-hqjpn
+Container: triton-inference-server
+  Requests: {"cpu":"2","memory":"4Gi"}
+  Limits: {"cpu":"4","memory":"8Gi"}
+
+Pod: mobilenetv4-triton-cpu-deployment-75d98f5ff4-lbgmx
+Container: triton-inference-server
+  Requests: {"cpu":"2","memory":"4Gi"}
+  Limits: {"cpu":"4","memory":"8Gi"}
+

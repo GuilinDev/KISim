@@ -1,0 +1,204 @@
+Name:               guilin-ms-7c79
+Roles:              <none>
+Labels:             beta.kubernetes.io/arch=amd64
+                    beta.kubernetes.io/os=linux
+                    feature.node.kubernetes.io/cpu-cpuid.ADX=true
+                    feature.node.kubernetes.io/cpu-cpuid.AESNI=true
+                    feature.node.kubernetes.io/cpu-cpuid.AVX=true
+                    feature.node.kubernetes.io/cpu-cpuid.AVX2=true
+                    feature.node.kubernetes.io/cpu-cpuid.CMPXCHG8=true
+                    feature.node.kubernetes.io/cpu-cpuid.FLUSH_L1D=true
+                    feature.node.kubernetes.io/cpu-cpuid.FMA3=true
+                    feature.node.kubernetes.io/cpu-cpuid.FXSR=true
+                    feature.node.kubernetes.io/cpu-cpuid.FXSROPT=true
+                    feature.node.kubernetes.io/cpu-cpuid.IA32_ARCH_CAP=true
+                    feature.node.kubernetes.io/cpu-cpuid.IBPB=true
+                    feature.node.kubernetes.io/cpu-cpuid.LAHF=true
+                    feature.node.kubernetes.io/cpu-cpuid.MD_CLEAR=true
+                    feature.node.kubernetes.io/cpu-cpuid.MOVBE=true
+                    feature.node.kubernetes.io/cpu-cpuid.MPX=true
+                    feature.node.kubernetes.io/cpu-cpuid.OSXSAVE=true
+                    feature.node.kubernetes.io/cpu-cpuid.SPEC_CTRL_SSBD=true
+                    feature.node.kubernetes.io/cpu-cpuid.SRBDS_CTRL=true
+                    feature.node.kubernetes.io/cpu-cpuid.STIBP=true
+                    feature.node.kubernetes.io/cpu-cpuid.SYSCALL=true
+                    feature.node.kubernetes.io/cpu-cpuid.SYSEE=true
+                    feature.node.kubernetes.io/cpu-cpuid.VMX=true
+                    feature.node.kubernetes.io/cpu-cpuid.X87=true
+                    feature.node.kubernetes.io/cpu-cpuid.XGETBV1=true
+                    feature.node.kubernetes.io/cpu-cpuid.XSAVE=true
+                    feature.node.kubernetes.io/cpu-cpuid.XSAVEC=true
+                    feature.node.kubernetes.io/cpu-cpuid.XSAVEOPT=true
+                    feature.node.kubernetes.io/cpu-cpuid.XSAVES=true
+                    feature.node.kubernetes.io/cpu-cstate.enabled=true
+                    feature.node.kubernetes.io/cpu-hardware_multithreading=true
+                    feature.node.kubernetes.io/cpu-model.family=6
+                    feature.node.kubernetes.io/cpu-model.id=165
+                    feature.node.kubernetes.io/cpu-model.vendor_id=Intel
+                    feature.node.kubernetes.io/cpu-pstate.scaling_governor=powersave
+                    feature.node.kubernetes.io/cpu-pstate.status=active
+                    feature.node.kubernetes.io/cpu-pstate.turbo=true
+                    feature.node.kubernetes.io/kernel-config.NO_HZ=true
+                    feature.node.kubernetes.io/kernel-config.NO_HZ_FULL=true
+                    feature.node.kubernetes.io/kernel-version.full=6.11.0-26-generic
+                    feature.node.kubernetes.io/kernel-version.major=6
+                    feature.node.kubernetes.io/kernel-version.minor=11
+                    feature.node.kubernetes.io/kernel-version.revision=0
+                    feature.node.kubernetes.io/memory-swap=true
+                    feature.node.kubernetes.io/pci-10de.present=true
+                    feature.node.kubernetes.io/pci-10ec.present=true
+                    feature.node.kubernetes.io/pci-8086.present=true
+                    feature.node.kubernetes.io/storage-nonrotationaldisk=true
+                    feature.node.kubernetes.io/system-os_release.ID=ubuntu
+                    feature.node.kubernetes.io/system-os_release.VERSION_ID=24.04
+                    feature.node.kubernetes.io/system-os_release.VERSION_ID.major=24
+                    feature.node.kubernetes.io/system-os_release.VERSION_ID.minor=04
+                    feature.node.kubernetes.io/usb-ef_0c45_636b.present=true
+                    feature.node.kubernetes.io/usb-ff_0bda_b812.present=true
+                    kubernetes.io/arch=amd64
+                    kubernetes.io/hostname=guilin-ms-7c79
+                    kubernetes.io/os=linux
+                    microk8s.io/cluster=true
+                    node.kubernetes.io/microk8s-controlplane=microk8s-controlplane
+                    nvidia.com/cuda.driver-version.full=570.144
+                    nvidia.com/cuda.driver-version.major=570
+                    nvidia.com/cuda.driver-version.minor=144
+                    nvidia.com/cuda.driver-version.revision=
+                    nvidia.com/cuda.driver.major=570
+                    nvidia.com/cuda.driver.minor=144
+                    nvidia.com/cuda.driver.rev=
+                    nvidia.com/cuda.runtime-version.full=12.8
+                    nvidia.com/cuda.runtime-version.major=12
+                    nvidia.com/cuda.runtime-version.minor=8
+                    nvidia.com/cuda.runtime.major=12
+                    nvidia.com/cuda.runtime.minor=8
+                    nvidia.com/gfd.timestamp=1748020349
+                    nvidia.com/gpu.compute.major=8
+                    nvidia.com/gpu.compute.minor=6
+                    nvidia.com/gpu.count=1
+                    nvidia.com/gpu.deploy.container-toolkit=true
+                    nvidia.com/gpu.deploy.dcgm=true
+                    nvidia.com/gpu.deploy.dcgm-exporter=true
+                    nvidia.com/gpu.deploy.device-plugin=true
+                    nvidia.com/gpu.deploy.driver=true
+                    nvidia.com/gpu.deploy.gpu-feature-discovery=true
+                    nvidia.com/gpu.deploy.node-status-exporter=true
+                    nvidia.com/gpu.deploy.operator-validator=true
+                    nvidia.com/gpu.family=ampere
+                    nvidia.com/gpu.machine=MS-7C79
+                    nvidia.com/gpu.memory=10240
+                    nvidia.com/gpu.mode=graphics
+                    nvidia.com/gpu.present=true
+                    nvidia.com/gpu.product=NVIDIA-GeForce-RTX-3080
+                    nvidia.com/gpu.replicas=1
+                    nvidia.com/gpu.sharing-strategy=none
+                    nvidia.com/mig.capable=false
+                    nvidia.com/mig.strategy=single
+                    nvidia.com/mps.capable=false
+                    nvidia.com/vgpu.present=false
+                    virtual-node-cpu-high=true
+                    virtual-node-general=true
+                    virtual-node-gpu=true
+                    workload-cpu-high=true
+                    workload-general=true
+                    workload-gpu=true
+Annotations:        nfd.node.kubernetes.io/feature-labels:
+                      cpu-cpuid.ADX,cpu-cpuid.AESNI,cpu-cpuid.AVX,cpu-cpuid.AVX2,cpu-cpuid.CMPXCHG8,cpu-cpuid.FLUSH_L1D,cpu-cpuid.FMA3,cpu-cpuid.FXSR,cpu-cpuid....
+                    node.alpha.kubernetes.io/ttl: 0
+                    nvidia.com/gpu-driver-upgrade-enabled: true
+                    projectcalico.org/IPv4Address: 192.168.1.151/24
+                    projectcalico.org/IPv4VXLANTunnelAddr: 10.1.193.192
+                    volumes.kubernetes.io/controller-managed-attach-detach: true
+CreationTimestamp:  Tue, 13 May 2025 00:37:42 -0400
+Taints:             <none>
+Unschedulable:      false
+Lease:
+  HolderIdentity:  guilin-ms-7c79
+  AcquireTime:     <unset>
+  RenewTime:       Fri, 23 May 2025 23:28:39 -0400
+Conditions:
+  Type                 Status  LastHeartbeatTime                 LastTransitionTime                Reason                       Message
+  ----                 ------  -----------------                 ------------------                ------                       -------
+  NetworkUnavailable   False   Fri, 23 May 2025 13:12:28 -0400   Fri, 23 May 2025 13:12:28 -0400   CalicoIsUp                   Calico is running on this node
+  MemoryPressure       False   Fri, 23 May 2025 23:28:10 -0400   Tue, 13 May 2025 00:37:42 -0400   KubeletHasSufficientMemory   kubelet has sufficient memory available
+  DiskPressure         False   Fri, 23 May 2025 23:28:10 -0400   Tue, 13 May 2025 00:37:42 -0400   KubeletHasNoDiskPressure     kubelet has no disk pressure
+  PIDPressure          False   Fri, 23 May 2025 23:28:10 -0400   Tue, 13 May 2025 00:37:42 -0400   KubeletHasSufficientPID      kubelet has sufficient PID available
+  Ready                True    Fri, 23 May 2025 23:28:10 -0400   Tue, 13 May 2025 00:38:00 -0400   KubeletReady                 kubelet is posting ready status
+Addresses:
+  InternalIP:  192.168.1.160
+  Hostname:    guilin-ms-7c79
+Capacity:
+  cpu:                20
+  ephemeral-storage:  205314024Ki
+  hugepages-1Gi:      0
+  hugepages-2Mi:      0
+  memory:             32779436Ki
+  nvidia.com/gpu:     1
+  pods:               110
+Allocatable:
+  cpu:                20
+  ephemeral-storage:  204265448Ki
+  hugepages-1Gi:      0
+  hugepages-2Mi:      0
+  memory:             32677036Ki
+  nvidia.com/gpu:     1
+  pods:               110
+System Info:
+  Machine ID:                 095e3ae64ecf42d7bcef89eaa5373418
+  System UUID:                8a679300-8348-fc19-a631-2cf05da3c1dd
+  Boot ID:                    66483bc5-55ee-4863-b1b4-439804490cbf
+  Kernel Version:             6.11.0-26-generic
+  OS Image:                   Ubuntu 24.04.2 LTS
+  Operating System:           linux
+  Architecture:               amd64
+  Container Runtime Version:  containerd://1.6.36
+  Kubelet Version:            v1.32.3
+  Kube-Proxy Version:         v1.32.3
+Non-terminated Pods:          (30 in total)
+  Namespace                   Name                                                           CPU Requests  CPU Limits  Memory Requests  Memory Limits  Age
+  ---------                   ----                                                           ------------  ----------  ---------------  -------------  ---
+  gpu-operator-resources      gpu-feature-discovery-lpl85                                    0 (0%)        0 (0%)      0 (0%)           0 (0%)         10d
+  gpu-operator-resources      gpu-operator-85776c76f-hdzsr                                   200m (1%)     500m (2%)   100Mi (0%)       350Mi (1%)     10d
+  gpu-operator-resources      gpu-operator-node-feature-discovery-gc-d8f9f89db-qmglc         10m (0%)      0 (0%)      128Mi (0%)       1Gi (3%)       10d
+  gpu-operator-resources      gpu-operator-node-feature-discovery-master-79978f78cf-4zfmv    100m (0%)     0 (0%)      128Mi (0%)       4Gi (12%)      10d
+  gpu-operator-resources      gpu-operator-node-feature-discovery-worker-5zq2l               5m (0%)       0 (0%)      64Mi (0%)        512Mi (1%)     10d
+  gpu-operator-resources      nvidia-container-toolkit-daemonset-d6mnh                       0 (0%)        0 (0%)      0 (0%)           0 (0%)         10d
+  gpu-operator-resources      nvidia-dcgm-exporter-m6z6c                                     0 (0%)        0 (0%)      0 (0%)           0 (0%)         10d
+  gpu-operator-resources      nvidia-device-plugin-daemonset-2v9fc                           0 (0%)        0 (0%)      0 (0%)           0 (0%)         10d
+  gpu-operator-resources      nvidia-operator-validator-rhq5w                                0 (0%)        0 (0%)      0 (0%)           0 (0%)         10d
+  ingress                     nginx-ingress-microk8s-controller-f9hg8                        0 (0%)        0 (0%)      0 (0%)           0 (0%)         10d
+  kube-system                 calico-kube-controllers-5947598c79-lpbl5                       0 (0%)        0 (0%)      0 (0%)           0 (0%)         10d
+  kube-system                 calico-node-krf2g                                              250m (1%)     0 (0%)      0 (0%)           0 (0%)         10d
+  kube-system                 coredns-79b94494c7-wg6gc                                       100m (0%)     0 (0%)      70Mi (0%)        170Mi (0%)     10d
+  kube-system                 hostpath-provisioner-c778b7559-96chl                           0 (0%)        0 (0%)      0 (0%)           0 (0%)         10d
+  kube-system                 metrics-server-7dbd8b5cc9-mzdxc                                100m (0%)     0 (0%)      200Mi (0%)       0 (0%)         10d
+  metallb-system              controller-7ffc454778-cdwsx                                    0 (0%)        0 (0%)      0 (0%)           0 (0%)         10d
+  metallb-system              speaker-g9tcq                                                  0 (0%)        0 (0%)      0 (0%)           0 (0%)         10d
+  observability               alertmanager-kube-prom-stack-kube-prome-alertmanager-0         200m (1%)     200m (1%)   250Mi (0%)       50Mi (0%)      10d
+  observability               kube-prom-stack-grafana-c5b5bf7d-svmhj                         0 (0%)        0 (0%)      0 (0%)           0 (0%)         10d
+  observability               kube-prom-stack-kube-prome-operator-95f875dd6-b55fm            0 (0%)        0 (0%)      0 (0%)           0 (0%)         10d
+  observability               kube-prom-stack-kube-state-metrics-86b8bcd658-mt5mx            0 (0%)        0 (0%)      0 (0%)           0 (0%)         10d
+  observability               kube-prom-stack-prometheus-node-exporter-whj6z                 0 (0%)        0 (0%)      0 (0%)           0 (0%)         10d
+  observability               loki-0                                                         0 (0%)        0 (0%)      0 (0%)           0 (0%)         10d
+  observability               loki-promtail-85lgt                                            0 (0%)        0 (0%)      0 (0%)           0 (0%)         10d
+  observability               prometheus-kube-prom-stack-kube-prome-prometheus-0             200m (1%)     200m (1%)   50Mi (0%)        50Mi (0%)      10d
+  observability               tempo-0                                                        0 (0%)        0 (0%)      0 (0%)           0 (0%)         10d
+  workloads                   locust-master-6d5866d77d-xmlkh                                 0 (0%)        0 (0%)      0 (0%)           0 (0%)         6m22s
+  workloads                   locust-worker-8bbd8ddc-6g2df                                   0 (0%)        0 (0%)      0 (0%)           0 (0%)         6m22s
+  workloads                   locust-worker-8bbd8ddc-r4nh8                                   0 (0%)        0 (0%)      0 (0%)           0 (0%)         6m22s
+  workloads                   mobilenetv4-triton-deployment-5758b65ffd-7tpz9                 2 (10%)       4 (20%)     4Gi (12%)        8Gi (25%)      11m
+Allocated resources:
+  (Total limits may be over 100 percent, i.e., overcommitted.)
+  Resource           Requests      Limits
+  --------           --------      ------
+  cpu                3165m (15%)   4900m (24%)
+  memory             5086Mi (15%)  14444Mi (45%)
+  ephemeral-storage  0 (0%)        0 (0%)
+  hugepages-1Gi      0 (0%)        0 (0%)
+  hugepages-2Mi      0 (0%)        0 (0%)
+  nvidia.com/gpu     1             1
+Events:
+  Type     Reason               Age                From     Message
+  ----     ------               ----               ----     -------
+  Warning  FreeDiskSpaceFailed  66s (x5 over 71m)  kubelet  (combined from similar events): Failed to garbage collect required amount of images. Attempted to free 14209483571 bytes, but only found 0 bytes eligible to free.
+  Warning  ImageGCFailed        66s (x3 over 66m)  kubelet  (combined from similar events): Failed to garbage collect required amount of images. Attempted to free 14209483571 bytes, but only found 0 bytes eligible to free.

@@ -1,0 +1,10 @@
+Pod Distribution Summary:
+=========================
+
+Pods per Node:
+  guilin-ms-7c79: 6 pods
+
+Pods per Type:
+  gpu: 0 pods
+  cpu: 3 pods
+  memory: 0 pods

@@ -1,0 +1,7 @@
+NAME                                                 CPU(cores)   MEMORY(bytes)   
+locust-master-6d5866d77d-q97rk                       852m         610Mi           
+locust-worker-8bbd8ddc-mf8pm                         1m           57Mi            
+locust-worker-8bbd8ddc-wwh6p                         1m           57Mi            
+mobilenetv4-triton-cpu-deployment-75d98f5ff4-fhvx2   611m         555Mi           
+mobilenetv4-triton-cpu-deployment-75d98f5ff4-hqjpn   661m         538Mi           
+mobilenetv4-triton-cpu-deployment-75d98f5ff4-lbgmx   527m         534Mi           

@@ -1,0 +1,2 @@
+NAME             STATUS   ROLES    AGE   VERSION   INTERNAL-IP     EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION      CONTAINER-RUNTIME
+guilin-ms-7c79   Ready    <none>   10d   v1.32.3   192.168.1.160   <none>        Ubuntu 24.04.2 LTS   6.11.0-26-generic   containerd://1.6.36

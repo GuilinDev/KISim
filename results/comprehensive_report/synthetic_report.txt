@@ -1,0 +1,12 @@
+Synthetic Test Performance Comparison
+=====================================
+CPU Average Latency: 81.55 ms
+GPU Average Latency: 77.17 ms
+Latency Speedup (CPU/GPU): 1.06x
+
+CPU P95 Latency: 90.17 ms
+GPU P95 Latency: 80.61 ms
+
+CPU Throughput: 11.62 images/sec
+GPU Throughput: 12.34 images/sec
+Throughput Speedup (GPU/CPU): 1.06x

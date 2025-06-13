@@ -61,6 +61,19 @@ make download-hf-model
 
 ### Running Experiments
 
+#### Quick Demo with Sample Data
+```bash
+# Generate plots from included sample data (no experiments needed)
+make demo-plots
+
+# Show sample data structure
+make demo-data
+
+# Generate specific plot types
+make demo-baseline-plots
+make demo-rl-plots
+```
+
 #### Baseline Experiments
 ```bash
 # Run complete baseline with all load patterns
