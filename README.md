@@ -203,19 +203,6 @@ This framework is designed for academic research. Key features:
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
-
-- **Kubernetes Community**: For the robust orchestration platform
-- **PyTorch Team**: For the deep learning framework
-- **Triton Inference Server**: For high-performance model serving
-- **Research Community**: For inspiration and best practices
-
-## 📞 Support
-
-- **Issues**: [GitHub Issues](https://github.com/yourusername/KISim/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/KISim/discussions)
-- **Email**: your.email@university.edu
-
 ---
 
 **KISim** - Making Kubernetes scheduling intelligent through reinforcement learning! 🚀
