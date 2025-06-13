@@ -1,0 +1,132 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: accuracy-evaluation-script
+  namespace: workloads
+data:
+  evaluate_accuracy.py: |
+    # This will be populated by the deployment script
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: accuracy-results-pvc
+  namespace: workloads
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: microk8s-hostpath
+  resources:
+    requests:
+      storage: 1Gi
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: mobilenetv4-accuracy-evaluation
+  namespace: workloads
+spec:
+  template:
+    spec:
+      containers:
+      - name: accuracy-evaluator
+        image: python:3.9-slim
+        command:
+        - "/bin/bash"
+        - "-c"
+        - |
+          apt-get update && apt-get install -y wget unzip && \
+          pip install numpy pillow tqdm tritonclient[http] requests && \
+
+          # Download and prepare Tiny ImageNet dataset
+          echo "Downloading Tiny ImageNet dataset..." && \
+          mkdir -p /data/tiny-imagenet && \
+          cd /data/tiny-imagenet && \
+          wget -q http://cs231n.stanford.edu/tiny-imagenet-200.zip && \
+          unzip -q tiny-imagenet-200.zip && \
+
+          # Prepare validation data
+          echo "Preparing validation data..." && \
+          mkdir -p /data/tiny-imagenet/val && \
+          cd /data/tiny-imagenet/tiny-imagenet-200/val && \
+
+          # Create class directories based on val_annotations.txt
+          python -c '
+import os
+import shutil
+
+val_dir = "/data/tiny-imagenet/tiny-imagenet-200/val"
+val_img_dir = os.path.join(val_dir, "images")
+annotations_file = os.path.join(val_dir, "val_annotations.txt")
+output_dir = "/data/tiny-imagenet/val"
+
+# Read annotations
+val_annotations = {}
+class_ids = set()
+with open(annotations_file, "r") as f:
+    for line in f:
+        parts = line.strip().split()
+        if len(parts) >= 2:
+            img_file = parts[0]
+            class_id = parts[1]
+            val_annotations[img_file] = class_id
+            class_ids.add(class_id)
+
+# Create class map
+with open(os.path.join(output_dir, "class_map.txt"), "w") as f:
+    for i, class_id in enumerate(sorted(class_ids)):
+        f.write(f"{i} {class_id}\\n")
+
+# Create mapping from class_id to numeric index
+class_to_idx = {class_id: i for i, class_id in enumerate(sorted(class_ids))}
+
+# Create organized directory structure
+for img_file, class_id in val_annotations.items():
+    src_path = os.path.join(val_img_dir, img_file)
+    if not os.path.exists(src_path):
+        print(f"Warning: Image file not found: {src_path}")
+        continue
+
+    # Get numeric class index
+    class_idx = class_to_idx[class_id]
+
+    # Create class directory
+    class_dir = os.path.join(output_dir, str(class_idx))
+    os.makedirs(class_dir, exist_ok=True)
+
+    # Copy image to class directory
+    dst_path = os.path.join(class_dir, img_file)
+    shutil.copy2(src_path, dst_path)
+
+print(f"Validation data prepared with {len(class_ids)} classes")
+          ' && \
+
+          # Run evaluation
+          echo "Running evaluation..." && \
+          python /scripts/evaluate_accuracy.py \
+            --server-url mobilenetv4-triton-svc.workloads.svc.cluster.local:8000 \
+            --model-name mobilenetv4 \
+            --dataset-path /data/tiny-imagenet/val \
+            --output-file /results/accuracy_results.json \
+            --num-samples 1000  # Limit to 1000 samples for faster evaluation
+        volumeMounts:
+        - name: evaluation-script
+          mountPath: /scripts
+        - name: results
+          mountPath: /results
+        resources:
+          requests:
+            memory: "2Gi"
+            cpu: "1"
+          limits:
+            memory: "4Gi"
+            cpu: "2"
+      volumes:
+      - name: evaluation-script
+        configMap:
+          name: accuracy-evaluation-script
+      - name: results
+        persistentVolumeClaim:
+          claimName: accuracy-results-pvc
+      restartPolicy: Never
+  backoffLimit: 2

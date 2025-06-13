@@ -1,0 +1,161 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: workloads
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mobilenetv4-model-pvc
+  namespace: workloads
+spec:
+  accessModes:
+    - ReadWriteOnce # Or ReadOnlyMany if multiple Triton instances might read from it, though usually 1 PVC per instance or use ReadWriteOnce.
+  resources:
+    requests:
+      storage: 5Gi # Adjust based on your model(s) size
+  # storageClassName: microk8s-hostpath # If you need a specific storage class in MicroK8s and it's not the default
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mobilenetv4-config-pbtxt-cm
+  namespace: workloads
+data:
+  config.pbtxt: |
+    name: "mobilenetv4"
+    platform: "onnxruntime_onnx" # Or "tensorflow_savedmodel" or "tensorrt_plan"
+    max_batch_size: 0  # Keep at 0 to match model's expected dimensions
+    input [
+      {
+        name: "pixel_values"
+        data_type: TYPE_FP32
+        dims: [ 1, 3, 224, 224 ]  # Fixed dimensions to match model's expectations
+      }
+    ]
+    output [
+      {
+        name: "logits" # Corrected output tensor name based on Triton logs
+        data_type: TYPE_FP32 # Replace with actual data type
+        dims: [ -1, 1000 ] # Assuming 1000 classes for ImageNet, verify with Netron if different
+      }
+    ]
+    instance_group [ { kind: KIND_GPU, count: 1 } ]
+    # Dynamic batching disabled as it requires max_batch_size > 0
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mobilenetv4-triton-deployment
+  namespace: workloads
+  labels:
+    app: mobilenetv4-triton
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: mobilenetv4-triton
+  template:
+    metadata:
+      labels:
+        app: mobilenetv4-triton
+        role: inference-server
+        type: gpu
+    spec:
+      nodeSelector:
+        workload-gpu: "true"
+      # Optional: If your MicroK8s node has taints that prevent scheduling, add tolerations
+      #   operator: "Exists"
+      #   effect: "NoSchedule"
+      volumes:
+        - name: model-storage-pvc
+          persistentVolumeClaim:
+            claimName: mobilenetv4-model-pvc
+        - name: model-config-cm-for-init # Volume for init container to read ConfigMap
+          configMap:
+            name: mobilenetv4-config-pbtxt-cm
+      initContainers:
+      - name: populate-config-to-pvc
+        image: busybox:latest
+        command: ['/bin/sh', '-c']
+        args:
+          - |
+            echo "InitContainer (populate-config-to-pvc): Copying config.pbtxt from ConfigMap to PVC..."
+            # Destination on PVC: /pvc_mount/mobilenetv4/config.pbtxt
+            # Source from CM: /cm_config_mount/config.pbtxt
+            mkdir -p /pvc_mount/mobilenetv4/1
+            cp /cm_config_mount/config.pbtxt /pvc_mount/mobilenetv4/config.pbtxt
+            echo "Config.pbtxt copied to PVC. Verifying..."
+            ls -lR /pvc_mount/mobilenetv4
+        volumeMounts:
+          - name: model-storage-pvc      # Mount PVC to write config.pbtxt into it
+            mountPath: /pvc_mount
+          - name: model-config-cm-for-init # Mount ConfigMap to read config.pbtxt from it
+            mountPath: /cm_config_mount
+      containers:
+      - name: triton-inference-server
+        # Check NVIDIA NGC for the latest recommended Triton image tag for general use (e.g., includes ONNX, TF, TensorRT backends)
+        # Example tag: nvcr.io/nvidia/tritonserver:24.04-py3 (verify this)
+        image: nvcr.io/nvidia/tritonserver:24.04-py3
+        command: ["tritonserver"]
+        args:
+          - --model-repository=/models # This is the emptyDir populated by the init container
+          - --strict-model-config=false # Allows Triton to start even if a model initially fails to load
+          # - --log-verbose=1 # Uncomment for more detailed logs
+        resources:
+          limits:
+            nvidia.com/gpu: 1
+            cpu: "4"
+            memory: "8Gi"
+          requests:
+            nvidia.com/gpu: 1
+            cpu: "2"
+            memory: "4Gi"
+        ports:
+        - containerPort: 8000
+          name: http
+        - containerPort: 8001
+          name: grpc
+        - containerPort: 8002
+          name: metrics
+        readinessProbe:
+          httpGet:
+            path: /v2/health/ready
+            port: http
+          initialDelaySeconds: 30 # Increased to give init container and model loading more time
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 6
+        livenessProbe:
+          httpGet:
+            path: /v2/health/live
+            port: http
+          initialDelaySeconds: 40 # Increased
+          periodSeconds: 15
+          timeoutSeconds: 5
+          failureThreshold: 4
+        volumeMounts:
+          - name: model-storage-pvc # Mount the PVC directly
+            mountPath: /models      # Triton expects models/mobilenetv4/1/model.onnx & models/mobilenetv4/config.pbtxt
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mobilenetv4-triton-svc
+  namespace: workloads
+  labels:
+    app: mobilenetv4-triton
+spec:
+  selector:
+    app: mobilenetv4-triton
+  ports:
+  - name: http
+    port: 8000
+    targetPort: http
+  - name: grpc
+    port: 8001
+    targetPort: grpc
+  - name: metrics
+    port: 8002
+    targetPort: metrics
+  type: ClusterIP # Start with ClusterIP, change to LoadBalancer if external access needed via MetalLB

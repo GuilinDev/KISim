@@ -1,0 +1,152 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: workloads
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mobilenetv4-cpu-model-pvc
+  namespace: workloads
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mobilenetv4-config-cpu-pbtxt-cm
+  namespace: workloads
+data:
+  config.pbtxt: |
+    name: "mobilenetv4"
+    platform: "onnxruntime_onnx"
+    max_batch_size: 0  # Keep at 0 to match model's expected dimensions
+    input [
+      {
+        name: "pixel_values"
+        data_type: TYPE_FP32
+        dims: [ 1, 3, 224, 224 ]  # Fixed dimensions to match model's expectations
+      }
+    ]
+    output [
+      {
+        name: "logits"
+        data_type: TYPE_FP32
+        dims: [ -1, 1000 ]  # Assuming 1000 classes for ImageNet
+      }
+    ]
+    instance_group [ { kind: KIND_CPU, count: 4 } ]  # CPU-only configuration with 4 instances
+    # Dynamic batching disabled as it requires max_batch_size > 0
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mobilenetv4-triton-cpu-deployment
+  namespace: workloads
+  labels:
+    app: mobilenetv4-triton-cpu
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: mobilenetv4-triton-cpu
+  template:
+    metadata:
+      labels:
+        app: mobilenetv4-triton-cpu
+        role: inference-server
+        type: cpu
+    spec:
+      nodeSelector:
+        workload-cpu-high: "true"
+      volumes:
+        - name: model-storage-pvc
+          persistentVolumeClaim:
+            claimName: mobilenetv4-cpu-model-pvc
+        - name: model-config-cm-for-init
+          configMap:
+            name: mobilenetv4-config-cpu-pbtxt-cm
+      initContainers:
+      - name: populate-config-to-pvc
+        image: busybox:latest
+        command: ['/bin/sh', '-c']
+        args:
+          - |
+            echo "InitContainer (populate-config-to-pvc): Copying config.pbtxt from ConfigMap to PVC..."
+            # Destination on PVC: /pvc_mount/mobilenetv4/config.pbtxt
+            # Source from CM: /cm_config_mount/config.pbtxt
+            mkdir -p /pvc_mount/mobilenetv4/1
+            cp /cm_config_mount/config.pbtxt /pvc_mount/mobilenetv4/config.pbtxt
+            echo "Config.pbtxt copied to PVC. Verifying..."
+            ls -lR /pvc_mount/mobilenetv4
+        volumeMounts:
+          - name: model-storage-pvc
+            mountPath: /pvc_mount
+          - name: model-config-cm-for-init
+            mountPath: /cm_config_mount
+      containers:
+      - name: triton-inference-server
+        image: nvcr.io/nvidia/tritonserver:24.04-py3
+        command: ["tritonserver"]
+        args:
+          - --model-repository=/models
+          - --strict-model-config=false
+        resources:
+          limits:
+            cpu: "4"
+            memory: "8Gi"
+          requests:
+            cpu: "2"
+            memory: "4Gi"
+        ports:
+        - containerPort: 8000
+          name: http
+        - containerPort: 8001
+          name: grpc
+        - containerPort: 8002
+          name: metrics
+        readinessProbe:
+          httpGet:
+            path: /v2/health/ready
+            port: http
+          initialDelaySeconds: 30  # Increased for CPU-only deployment which may take longer to initialize
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 6
+        livenessProbe:
+          httpGet:
+            path: /v2/health/live
+            port: http
+          initialDelaySeconds: 40  # Increased
+          periodSeconds: 15
+          timeoutSeconds: 5
+          failureThreshold: 4
+        volumeMounts:
+          - name: model-storage-pvc
+            mountPath: /models
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mobilenetv4-triton-cpu-svc
+  namespace: workloads
+  labels:
+    app: mobilenetv4-triton-cpu
+spec:
+  selector:
+    app: mobilenetv4-triton-cpu
+  ports:
+  - name: http
+    port: 8000
+    targetPort: http
+  - name: grpc
+    port: 8001
+    targetPort: grpc
+  - name: metrics
+    port: 8002
+    targetPort: metrics
+  type: ClusterIP

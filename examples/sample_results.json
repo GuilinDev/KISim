@@ -1,0 +1,99 @@
+{
+  "experiment_info": {
+    "name": "baseline_ramp_load",
+    "timestamp": "20240523_224209",
+    "duration_seconds": 300,
+    "load_pattern": "ramp",
+    "deployment_type": "gpu",
+    "kubernetes_version": "1.24.0",
+    "node_count": 1
+  },
+  "workload_config": {
+    "model": "mobilenetv4_conv_small",
+    "framework": "triton",
+    "batch_size": 1,
+    "precision": "fp16",
+    "max_replicas": 5,
+    "min_replicas": 1
+  },
+  "load_pattern": {
+    "type": "ramp",
+    "start_users": 1,
+    "end_users": 100,
+    "ramp_duration": 240,
+    "hold_duration": 60,
+    "step_size": 5
+  },
+  "performance_metrics": {
+    "response_time": {
+      "avg_ms": 45.2,
+      "p50_ms": 42.1,
+      "p95_ms": 78.5,
+      "p99_ms": 125.3,
+      "max_ms": 234.7,
+      "min_ms": 12.4
+    },
+    "throughput": {
+      "requests_per_second": 87.3,
+      "total_requests": 26190,
+      "successful_requests": 26145,
+      "failed_requests": 45,
+      "success_rate_percent": 99.83
+    },
+    "resource_utilization": {
+      "cpu_percent": 65.4,
+      "memory_percent": 42.1,
+      "gpu_percent": 78.9,
+      "gpu_memory_percent": 34.2
+    }
+  },
+  "scaling_events": [
+    {
+      "timestamp": "2024-05-23T22:43:15Z",
+      "action": "scale_up",
+      "from_replicas": 1,
+      "to_replicas": 2,
+      "trigger": "high_latency",
+      "latency_p95": 89.2
+    },
+    {
+      "timestamp": "2024-05-23T22:45:30Z",
+      "action": "scale_up",
+      "from_replicas": 2,
+      "to_replicas": 3,
+      "trigger": "high_latency",
+      "latency_p95": 95.7
+    },
+    {
+      "timestamp": "2024-05-23T22:47:45Z",
+      "action": "scale_down",
+      "from_replicas": 3,
+      "to_replicas": 2,
+      "trigger": "low_utilization",
+      "cpu_percent": 35.2
+    }
+  ],
+  "time_series": {
+    "timestamps": [
+      "2024-05-23T22:42:09Z",
+      "2024-05-23T22:42:14Z",
+      "2024-05-23T22:42:19Z"
+    ],
+    "user_counts": [1, 6, 11],
+    "response_times_p95": [23.4, 28.7, 35.2],
+    "requests_per_second": [0.8, 4.2, 8.7],
+    "cpu_utilization": [15.2, 25.8, 38.4],
+    "gpu_utilization": [12.1, 28.9, 45.6]
+  },
+  "summary": {
+    "experiment_status": "completed",
+    "total_duration": 300,
+    "peak_users": 100,
+    "peak_rps": 87.3,
+    "peak_latency_p95": 78.5,
+    "average_cpu_utilization": 65.4,
+    "average_gpu_utilization": 78.9,
+    "scaling_efficiency": "good",
+    "overall_performance": "excellent"
+  }
+}

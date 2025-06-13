@@ -1,0 +1,37 @@
+{
+  "environment": {
+    "namespace": "workloads",
+    "prometheus_url": "http://localhost:9090",
+    "locust_url": "http://localhost:8089",
+    "episode_duration": 300,
+    "action_interval": 30,
+    "max_replicas": 10,
+    "min_replicas": 1,
+    "observation_window": 60,
+    "latency_weight": 0.4,
+    "throughput_weight": 0.3,
+    "resource_efficiency_weight": 0.2,
+    "stability_weight": 0.1
+  },
+  "agent": {
+    "learning_rate": 3e-4,
+    "hidden_size": 256,
+    "num_layers": 3,
+    "buffer_size": 2048,
+    "batch_size": 64,
+    "ppo_epochs": 4,
+    "gamma": 0.99,
+    "gae_lambda": 0.95,
+    "clip_epsilon": 0.2,
+    "entropy_coef": 0.01,
+    "value_coef": 0.5,
+    "max_grad_norm": 0.5
+  },
+  "use_gpu": true,
+  "description": "Production configuration optimized for comprehensive training based on baseline findings",
+  "training": {
+    "episodes": 100,
+    "evaluation_interval": 20,
+    "save_interval": 10
+  }
+}

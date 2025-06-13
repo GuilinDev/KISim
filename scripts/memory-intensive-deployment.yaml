@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: memory-intensive-deployment
+  namespace: workloads
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: memory-intensive
+  template:
+    metadata:
+      labels:
+        app: memory-intensive
+        role: data-processing
+        type: memory
+    spec:
+      nodeSelector:
+        workload-general: "true"
+      containers:
+      - name: memory-worker
+        image: redis:latest
+        command: ["redis-server", "--maxmemory", "1gb", "--maxmemory-policy", "allkeys-lru"]
+        resources:
+          requests:
+            memory: "1Gi"
+            cpu: "0.5"
+          limits:
+            memory: "2Gi"
+            cpu: "1"
+        ports:
+        - containerPort: 6379
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: memory-intensive-svc
+  namespace: workloads
+spec:
+  selector:
+    app: memory-intensive
+  ports:
+  - port: 6379
+    targetPort: 6379
+  type: ClusterIP

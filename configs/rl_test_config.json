@@ -1,0 +1,32 @@
+{
+  "environment": {
+    "namespace": "workloads",
+    "prometheus_url": "http://localhost:9090",
+    "locust_url": "http://localhost:8089",
+    "episode_duration": 60,
+    "action_interval": 15,
+    "max_replicas": 5,
+    "min_replicas": 1,
+    "observation_window": 30,
+    "latency_weight": 0.4,
+    "throughput_weight": 0.3,
+    "resource_efficiency_weight": 0.2,
+    "stability_weight": 0.1
+  },
+  "agent": {
+    "learning_rate": 3e-4,
+    "hidden_size": 128,
+    "num_layers": 2,
+    "buffer_size": 512,
+    "batch_size": 32,
+    "ppo_epochs": 2,
+    "gamma": 0.99,
+    "gae_lambda": 0.95,
+    "clip_epsilon": 0.2,
+    "entropy_coef": 0.01,
+    "value_coef": 0.5,
+    "max_grad_norm": 0.5
+  },
+  "use_gpu": true,
+  "description": "Quick test configuration with shorter episodes and smaller network"
+}
