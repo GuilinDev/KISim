@@ -185,7 +185,7 @@ make test-integration
 make benchmark
 ```
 
-## 📚 Academic Usage
+## 📚 Usage
 
 This framework is designed for academic research. Key features:
 
@@ -194,7 +194,7 @@ This framework is designed for academic research. Key features:
 - **Publication Figures**: High-quality plots and tables
 - **Comprehensive Metrics**: Academic-standard evaluation
 
-### 🎯 Academic Paper Plots
+### 🎯 Plots
 
 The `make demo-rl-plots` command generates publication-ready plots that reproduce the academic paper results:
 
@@ -216,30 +216,10 @@ These plots use real experimental data from the `experiments/rl/` directory when
 }
 ```
 
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit changes (`git commit -m 'Add amazing feature'`)
-4. Push to branch (`git push origin feature/amazing-feature`)
-5. Open Pull Request
 
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- **Kubernetes Community**: For the robust orchestration platform
-- **PyTorch Team**: For the deep learning framework
-- **Triton Inference Server**: For high-performance model serving
-- **Research Community**: For inspiration and best practices
-
-## 📞 Support
-
-- **Issues**: [GitHub Issues](https://github.com/yourusername/KISim/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/KISim/discussions)
-- **Email**: your.email@university.edu
 
 ---
 
