@@ -403,6 +403,29 @@ plots-baseline:
 	@python3 analysis/generate_plots.py --results-dir $(RESULTS_DIR) --output-dir $(FIGURES_DIR) --type baseline
 	@echo "Baseline plots generated in $(FIGURES_DIR)/baseline"
 
+# Generate optimized baseline workload plots (academic style)
+baseline-plots:
+	@echo "Generating optimized baseline workload plots..."
+	@python3 analysis/generate_baseline_plots.py
+	@echo "✅ Optimized baseline plots generated in figures/baseline/"
+	@echo "📊 Generated files:"
+	@ls -la figures/baseline/*.png 2>/dev/null || echo "No plots found"
+
+# Verify baseline plots contain P95 Response Time data
+verify-baseline-plots:
+	@echo "Verifying P95 Response Time data in baseline plots..."
+	@python3 analysis/verify_p95_plots.py
+
+# Check legend placement in baseline plots
+check-legend-placement:
+	@echo "Checking legend placement in baseline plots..."
+	@python3 analysis/check_legend_placement.py
+
+# Compare baseline plot styles
+compare-baseline-plots:
+	@echo "Comparing baseline plot styles..."
+	@python3 analysis/compare_baseline_plots.py
+
 # Generate RL plots only
 plots-rl:
 	@echo "Generating RL plots..."
@@ -428,9 +451,70 @@ demo-analyze:
 
 # Generate all plots using sample data
 demo-plots:
-	@echo "Generating all plots using sample data..."
-	@python3 analysis/generate_plots.py --results-dir $(RESULTS_DIR) --output-dir $(FIGURES_DIR) --type all
-	@echo "Sample plots generated! Check $(FIGURES_DIR)/"
+	@echo "Generating all plots using real data..."
+	@echo "Loading baseline results..."
+	@python3 analysis/generate_comprehensive_comparison.py
+	@echo "Loading RL results..."
+	@python3 analysis/generate_rl_comparison.py --rl-results ./results/rl --baseline-results ./results/baseline --cpu-baseline-results ./results/cpu_baseline --output ./figures/comparison/rl_comparison.json || echo "RL comparison skipped - no RL data found"
+	@echo "Generating RL training plots..."
+	@python3 analysis/generate_rl_plots.py --output-dir ./figures/rl
+	@echo "Copying existing figures..."
+	@mkdir -p figures/baseline figures/rl figures/comparison
+	@if [ -d "results/comparison" ]; then cp results/comparison/*.png figures/comparison/ 2>/dev/null || true; fi
+	@echo "All plots saved to: figures"
+	@echo "Sample plots generated! Check ./figures/"
+
+demo-rl-plots:
+	@echo "📊 Generating RL training plots for academic paper..."
+	@python3 analysis/generate_rl_plots.py
+	@echo "✅ RL plots generated in figures/rl/"
+	@echo "📋 Generated plots:"
+	@echo "  - rl_training_progress.png (Episode rewards with moving average)"
+	@echo "  - pattern_performance_training.png (Performance by load pattern)"
+	@echo "  - training_losses.png (Policy and value losses)"
+
+# Generate RL plots matching academic paper figures
+rl-plots:
+	@echo "📊 Generating RL plots matching academic paper figures..."
+	@python3 analysis/generate_rl_plots.py --output-dir ./figures/rl
+	@echo "✅ RL plots generated in figures/rl/"
+	@echo "📁 Individual plots also saved to: figures/rl/individual/"
+
+# Verify RL plots match academic paper requirements
+verify-rl-plots:
+	@echo "🔍 Verifying RL plots match academic paper requirements..."
+	@python3 verify_rl_plots.py
+
+# Show summary of generated RL plots
+show-rl-plots:
+	@echo "📊 Showing RL plots summary..."
+	@python3 show_rl_plots.py
+
+list-plots:
+	@echo "Available plot generation commands:"
+	@echo "  make demo-plots        - Generate all plots (baseline + RL + comparison)"
+	@echo "  make baseline-plots    - Generate optimized baseline workload plots (academic style)"
+	@echo "  make rl-plots          - Generate RL plots matching academic paper figures"
+	@echo "  make verify-baseline-plots - Verify P95 Response Time data in baseline plots"
+	@echo "  make verify-rl-plots   - Verify RL plots match academic paper requirements"
+	@echo "  make demo-rl-plots     - Generate RL training plots only (legacy)"
+	@echo ""
+	@echo "Generated plot types:"
+	@echo "  Baseline plots (figures/baseline/):"
+	@echo "    - ramp_optimized.png, spike_optimized.png, etc. (individual patterns)"
+	@echo ""
+	@echo "  RL plots (figures/rl/individual/) - Academic Paper Style:"
+	@echo "    - rl_training_progress.png (Episode rewards + moving average)"
+	@echo "    - pattern_performance_training.png (Performance by load pattern)"
+	@echo "    - training_losses.png (Policy and value losses)"
+	@echo "    - rl_learning_by_pattern.png (Learning by pattern scatter plot)"
+	@echo "    - rl_pattern_performance.png (Alternative pattern performance)"
+	@echo "    - rl_reward_distribution.png (Reward distribution histogram)"
+	@echo ""
+	@echo "  Comparison plots (figures/comparison/):"
+	@echo "    - comprehensive_performance_comparison.png (CPU vs GPU real data)"
+	@echo "    - synthetic_test_comparison.png (Synthetic test comparison)"
+	@echo "    - baseline_vs_rl_comparison.png (RL vs baseline comparison)"
 
 # Generate baseline plots using sample data
 demo-baseline-plots:
@@ -438,8 +522,8 @@ demo-baseline-plots:
 	@python3 analysis/generate_plots.py --results-dir $(RESULTS_DIR) --output-dir $(FIGURES_DIR) --type baseline
 	@echo "Sample baseline plots generated! Check $(FIGURES_DIR)/baseline/"
 
-# Generate RL plots using sample data
-demo-rl-plots:
+# Generate RL plots using synthetic data (academic style)
+demo-rl-plots-old:
 	@echo "Generating RL plots using sample data..."
 	@python3 analysis/generate_plots.py --results-dir $(RESULTS_DIR) --output-dir $(FIGURES_DIR) --type rl
 	@echo "Sample RL plots generated! Check $(FIGURES_DIR)/rl/"
